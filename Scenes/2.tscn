@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://chaeh2gkbusxo"]
+
+[ext_resource type="Script" uid="uid://cifu6c7jbujos" path="res://Scripts/2.gd" id="1_vft0l"]
+
+[node name="2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vft0l")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 222.0
+offset_right = 741.0
+offset_bottom = 392.0
+text = "Change to scene 1"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

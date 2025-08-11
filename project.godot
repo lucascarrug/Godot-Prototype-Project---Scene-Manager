@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="Prototype Project - Scene Manager"
-run/main_scene="res://Scenes/LoadingScreen.tscn"
+run/main_scene="uid://bygaqrujsdelk"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://Scripts/SceneManager.gd"

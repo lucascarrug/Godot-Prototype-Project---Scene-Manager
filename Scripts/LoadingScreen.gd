@@ -1,6 +1,6 @@
 class_name LoadingScreen extends CanvasLayer
 
-signal transition_in_complete
+signal transition_reached_midpoint
 
 @onready var animation_player = $AnimationPlayer
 @onready var timer = $Timer
@@ -18,6 +18,7 @@ func start_transition(start_animation_name: String) -> void:
 		start_animation_name = "fade_in"
 	
 	# Run animation.
+	print("Playing fade_in")
 	current_animation_name = start_animation_name
 	animation_player.play(current_animation_name)
 	
@@ -26,17 +27,22 @@ func end_transition() -> void:
 	var end_animaition_name = "fade_out"
 	
 	# Play animation.
+	print("Playing fade_out")
 	current_animation_name = end_animaition_name
-	animation_player.play(current_animation_name)
+	animation_player.play(end_animaition_name)
 	
 	# Wait animation.
 	await animation_player.animation_finished
 	queue_free()
 
+func report_midpoint() -> void:
+	transition_reached_midpoint.emit()
+	print("Emitiendo midpoint desde ", self)
+
+##### DEGUB #####
 
 func _on_button_2_pressed() -> void:
 	end_transition()
-
 
 func _on_button_pressed() -> void:
 	start_transition("fade in")
