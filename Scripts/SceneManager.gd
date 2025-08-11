@@ -1,8 +1,5 @@
 extends Node
 
-const HEIGHT := 700
-const WIDTH := 1200
-
 signal content_finished_loading(content)
 signal content_invalid(content_path: String)
 signal content_failed_to_load(content_path: String)
@@ -14,6 +11,7 @@ var _content_path: String
 var _load_progress_timer: Timer
 
 func _ready() -> void:
+	# Connect signals.
 	content_finished_loading.connect(on_content_finished_loading)
 	content_invalid.connect(on_content_invalid)
 	content_failed_to_load.connect(on_content_failed_to_load)
@@ -21,7 +19,7 @@ func _ready() -> void:
 func load_new_scene(content_path: String, transition_type: String = "fade_in") -> void:
 	# Save transition.
 	_transition = transition_type
-	# Create loading screen.
+	# Create and add loading screen.
 	loading_screen = _loading_screen_scene.instantiate() as LoadingScreen
 	get_tree().root.add_child(loading_screen)
 	# Start animation.
@@ -30,16 +28,17 @@ func load_new_scene(content_path: String, transition_type: String = "fade_in") -
 
 func _load_content(content_path: String) -> void:
 	# Wait midpoint.
-	print("Esperando midpoint en", loading_screen)
 	await loading_screen.transition_reached_midpoint
 	
-	# Start loading new scene.
+	# Start loading new scene in thread.
 	_content_path = content_path
 	var loader = ResourceLoader.load_threaded_request(content_path)
+	
 	if not ResourceLoader.exists(content_path) or loader == null:
 		content_invalid.emit(content_path)
 		return
 	
+	# Execute monitor_load_status every 0.1 seconds.
 	_load_progress_timer = Timer.new()
 	_load_progress_timer.wait_time = 0.1
 	_load_progress_timer.timeout.connect(monitor_load_status)
@@ -75,6 +74,7 @@ func on_content_invalid(path: String) -> void:
 	printerr("error: Cannot load resource ", path)
 
 func on_content_finished_loading(content) -> void:
+	# Get old scene.
 	var outgoing_scene = get_tree().current_scene
 	
 	# Delete old scene.

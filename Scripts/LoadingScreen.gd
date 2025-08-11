@@ -25,8 +25,13 @@ func start_transition(start_animation_name: String) -> void:
 	timer.start()
 	
 func end_transition() -> void:
-	# Default end.
-	var end_animaition_name = "fade_out"
+	# Make the inverse transition.
+	var end_animaition_name = current_animation_name.replace("in", "out")
+	
+	# Check if exists or default end.
+	if not animation_player.has_animation(end_animaition_name):
+		push_warning(end_animaition_name, " doesn't exist.")
+		end_animaition_name = "fade_out"
 	
 	# Play animation.
 	current_animation_name = end_animaition_name
