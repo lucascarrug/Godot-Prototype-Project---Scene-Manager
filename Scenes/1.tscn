@@ -4,19 +4,24 @@
 
 [node name="1" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("1_30x3x")
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 437.0
-offset_top = 222.0
-offset_right = 741.0
-offset_bottom = 392.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.379
+anchor_top = 0.343
+anchor_right = 0.643
+anchor_bottom = 0.605
+offset_left = 0.391998
+offset_top = -0.264023
+offset_right = 0.263977
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
 text = "Change to scene 2"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
