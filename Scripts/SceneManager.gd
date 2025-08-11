@@ -3,20 +3,29 @@ extends Node
 signal content_finished_loading(content)
 signal content_invalid(content_path: String)
 signal content_failed_to_load(content_path: String)
+signal finished_loading_new_scene
 
 var loading_screen: LoadingScreen
 var _loading_screen_scene: PackedScene = preload("res://Scenes/LoadingScreen.tscn")
 var _transition: String
 var _content_path: String
 var _load_progress_timer: Timer
+var is_loading_new_scene := false
 
 func _ready() -> void:
 	# Connect signals.
 	content_finished_loading.connect(on_content_finished_loading)
 	content_invalid.connect(on_content_invalid)
 	content_failed_to_load.connect(on_content_failed_to_load)
+	finished_loading_new_scene.connect(on_finished_loading_new_scene)
 	
 func load_new_scene(content_path: String, transition_type: String = "fade_in") -> void:
+	# Check if is loading another scene at the moment.
+	if is_loading_new_scene:
+		printerr("Can't load a new scene while loading a new one.")
+		return
+	# NFian
+	is_loading_new_scene = true
 	# Save transition.
 	_transition = transition_type
 	# Create and add loading screen.
@@ -90,3 +99,7 @@ func on_content_finished_loading(content) -> void:
 	loading_screen.end_transition()
 	await loading_screen.animation_player.animation_finished
 	loading_screen.queue_free()
+	finished_loading_new_scene.emit()
+
+func on_finished_loading_new_scene() -> void:
+	is_loading_new_scene = false
