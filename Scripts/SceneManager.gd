@@ -57,8 +57,7 @@ func monitor_load_status() -> void:
 			return
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			if loading_screen != null:
-				#loading_screen.update_bar(load_progress[0] * 100)
-				pass
+				loading_screen.update_bar(load_progress[0] * 100)
 		ResourceLoader.THREAD_LOAD_FAILED:
 			content_failed_to_load.emit(_content_path)
 			_load_progress_timer.stop()
