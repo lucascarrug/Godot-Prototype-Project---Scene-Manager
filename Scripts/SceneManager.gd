@@ -72,7 +72,7 @@ func on_content_failed_to_load(path: String) -> void:
 	
 func on_content_invalid(path: String) -> void:
 	printerr("error: Cannot load resource ", path)
-
+	
 func on_content_finished_loading(content) -> void:
 	# Get old scene.
 	var outgoing_scene = get_tree().current_scene
@@ -89,4 +89,4 @@ func on_content_finished_loading(content) -> void:
 		return
 	loading_screen.end_transition()
 	await loading_screen.animation_player.animation_finished
-	loading_screen = null
+	loading_screen.queue_free()
