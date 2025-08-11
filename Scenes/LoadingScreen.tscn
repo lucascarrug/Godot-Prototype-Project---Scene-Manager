@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqebhxo26gr58"]
+
+[ext_resource type="Texture2D" uid="uid://dxjq8dsesm32" path="res://Assets/Sprites/Sprite_Small.png" id="1_kddo8"]
+
+[sub_resource type="Animation" id="Animation_ghsbh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kddo8"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhqi2"]
+_data = {
+&"RESET": SubResource("Animation_ghsbh"),
+&"fade_in": SubResource("Animation_kddo8")
+}
+
+[node name="LoadingScreen" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 277.0
+offset_top = 309.0
+offset_right = 889.0
+offset_bottom = 336.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dhqi2")
+}
+autoplay = "fade_in"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(122, 178)
+scale = Vector2(-4.81495, 4.14623)
+texture = ExtResource("1_kddo8")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.003
+anchor_bottom = 1.0
+offset_right = 0.543945
+offset_bottom = 1.0
+color = Color(0, 0, 0, 0)
