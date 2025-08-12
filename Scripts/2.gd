@@ -8,4 +8,4 @@ func _ready() -> void:
 	Refs.viewport_y = get_viewport_rect().end.y
 
 func _on_button_pressed() -> void:
-	SceneManager.load_new_scene("res://Scenes/1.tscn")
+	SceneManager.load_new_scene("res://Scenes/1.tscn", get_tree().root, self)
