@@ -2,8 +2,8 @@ class_name LoadingScreen extends CanvasLayer
 
 signal transition_reached_midpoint
 
-const W := 1920#1152
-const H := 1080#648
+const W := 1152#1920#
+const H := 648#1080#
 
 @onready var animation_player := $AnimationPlayer
 @onready var timer := $Timer
@@ -12,8 +12,11 @@ const H := 1080#648
 var current_animation_name: String
 
 func _ready() -> void:
-	var scale_factor = control.size.x / float(W)
-	control.scale /= Vector2(scale_factor, scale_factor)
+	# Scale in order to addapt the loading screen.
+	var scale_factor_x = control.size.x / float(W)
+	var scale_factor_y = control.size.y / float(H)
+	control.scale /= Vector2(scale_factor_x, scale_factor_y)
+	
 	progress_bar.visible = false
 	
 func start_transition(start_animation_name: String) -> void:
