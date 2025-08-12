@@ -19,3 +19,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://Scripts/SceneManager.gd"
 Refs="*res://Scripts/Global/Refs.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"

@@ -1,11 +1,11 @@
 extends Control
 
 func _on_down_button_pressed() -> void:
-	SceneManager.load_new_scene("res://Scenes/Down.tscn", get_tree().root, self, "fade_in")
+	SceneManager.load_new_scene("res://Scenes/Down.tscn", get_tree().root, self, "slide_up_in")
 
 
 func _on_up_button_pressed() -> void:
-	SceneManager.load_new_scene("res://Scenes/Up.tscn", get_tree().root, self, "fade_in")
+	SceneManager.load_new_scene("res://Scenes/Up.tscn", get_tree().root, self, "slide_down_in")
 
 
 func _on_right_button_pressed() -> void:

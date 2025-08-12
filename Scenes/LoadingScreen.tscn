@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqebhxo26gr58"]
+[gd_scene load_steps=16 format=3 uid="uid://cqebhxo26gr58"]
 
 [ext_resource type="Script" uid="uid://yomsh0wilr40" path="res://Scripts/LoadingScreen.gd" id="1_xoop3"]
 
@@ -337,17 +337,205 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_634pj"]
+resource_name = "slide_down_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 5),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Background:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.62451),
+"update": 0,
+"values": [Vector2(1158, 648)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"report_midpoint"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_am871"]
+resource_name = "slide_down_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(5),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Background:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(5),
+"update": 0,
+"values": [Vector2(1158, 648)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 648)]
+}
+
+[sub_resource type="Animation" id="Animation_6p6t7"]
+resource_name = "slide_up_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 5),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Background:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(5),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Background:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(5),
+"update": 0,
+"values": [Vector2(1158, 648)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"report_midpoint"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jepyk"]
+resource_name = "slide_up_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(5),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Background:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(5),
+"update": 0,
+"values": [Vector2(1158, 648)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhqi2"]
 _data = {
 &"RESET": SubResource("Animation_ghsbh"),
 &"fade_in": SubResource("Animation_kddo8"),
 &"fade_out": SubResource("Animation_m6rkq"),
+&"slide_down_in": SubResource("Animation_634pj"),
+&"slide_down_out": SubResource("Animation_am871"),
 &"slide_in": SubResource("Animation_xoop3"),
 &"slide_left_in": SubResource("Animation_68uam"),
 &"slide_left_out": SubResource("Animation_davxm"),
 &"slide_out": SubResource("Animation_qjj4j"),
 &"slide_right_in": SubResource("Animation_dq85b"),
-&"slide_right_out": SubResource("Animation_ffghy")
+&"slide_right_out": SubResource("Animation_ffghy"),
+&"slide_up_in": SubResource("Animation_6p6t7"),
+&"slide_up_out": SubResource("Animation_jepyk")
 }
 
 [node name="LoadingScreen" type="CanvasLayer"]
@@ -364,8 +552,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.004
 anchor_bottom = 1.0
-offset_left = 1158.0
-offset_right = 1159.39
+offset_top = -648.0
+offset_right = 1.39209
+offset_bottom = -648.0
 color = Color(0, 0, 0, 0)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
