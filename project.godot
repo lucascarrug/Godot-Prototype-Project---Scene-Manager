@@ -11,16 +11,11 @@ config_version=5
 [application]
 
 config/name="Prototype Project - Scene Manager"
-run/main_scene="uid://bygaqrujsdelk"
+run/main_scene="uid://vxkr83lai6yx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SceneManager="*res://Scripts/SceneManager.gd"
-Refs="*res://Scripts/Refs.gd"
-
-[display]
-
-window/size/viewport_width=1447
-window/size/viewport_height=888
+Refs="*res://Scripts/Global/Refs.gd"

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn0oj8ntax8rj"]
+
+[ext_resource type="Script" uid="uid://lqsujoxpv2qw" path="res://Scripts/Rooms/Down.gd" id="1_wr0xm"]
+
+[node name="Down" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_wr0xm")
+
+[node name="CenterButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37
+anchor_top = 0.154
+anchor_right = 0.63
+anchor_bottom = 0.309
+offset_left = -0.23999
+offset_top = 0.207993
+offset_right = 0.239929
+offset_bottom = -0.231979
+text = "Center
+"
+
+[connection signal="pressed" from="CenterButton" to="." method="_on_center_button_pressed"]
