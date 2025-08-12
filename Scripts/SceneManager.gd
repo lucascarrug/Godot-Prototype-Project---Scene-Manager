@@ -106,3 +106,4 @@ func on_content_finished_loading(content) -> void:
 
 func on_finished_loading_new_scene() -> void:
 	is_loading_in_progress = false
+	print("Scene loaded.")

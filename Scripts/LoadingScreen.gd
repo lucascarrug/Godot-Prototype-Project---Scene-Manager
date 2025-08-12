@@ -23,6 +23,7 @@ func start_transition(start_animation_name: String) -> void:
 	# Check if animaition exists or default start.
 	if not animation_player.has_animation(start_animation_name):
 		push_warning(start_animation_name, " doesn't exist.")
+		print(start_animation_name, " doesn't exist.")
 		start_animation_name = "fade_in"
 	
 	# Run animation.
