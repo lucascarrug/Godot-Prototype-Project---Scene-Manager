@@ -552,9 +552,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.004
 anchor_bottom = 1.0
-offset_top = -648.0
-offset_right = 1.39209
-offset_bottom = -648.0
+offset_right = 0.39209
+offset_bottom = -1.0
 color = Color(0, 0, 0, 0)
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
