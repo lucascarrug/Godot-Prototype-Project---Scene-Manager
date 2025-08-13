@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Prototype Project - Scene Manager"
-run/main_scene="uid://vxkr83lai6yx"
+run/main_scene="uid://d2cbp7tw4ufon"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
